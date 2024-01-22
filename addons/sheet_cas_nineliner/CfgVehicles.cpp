@@ -6,29 +6,33 @@ class CAManBase : Man
     {
         class nln_sheets
         {
-            class cas_nineliner
+            class main
+            {
+                class edit_main;
+                class show_main;
+                class hide_main;
+            };
+            class cas_nineliner: main
             {
                 displayName = "$STR_nln_cas_nineliner_interactions_selfAction";
                 condition = "!nln_cas_nineliner_disable";
                 statement = "call nln_cas_nineliner_fnc_openMenu;";
+                icon = "\x\nln\addons\sheet_cas_nineliner\data\ui\cas_nineliner.paa";
 
-                class edit
+                class edit: edit_main
                 {
-                    displayName = "$STR_nln_main_interactions_selfActionEdit";
                     condition = "!nln_cas_nineliner_disable";
                     statement = "call nln_cas_nineliner_fnc_openMenu;";
                 };
 
-                class show
+                class show: show_main
                 {
-                    displayName = "$STR_nln_main_interactions_selfActionShow";
                     condition = "!nln_cas_nineliner_disable && (isNull (uiNamespace getVariable ['nln_cas_nineliner', displayNull]))";
                     statement = "call nln_cas_nineliner_fnc_openBackground;";
                 };
 
-                class hide
+                class hide: hide_main
                 {
-                    displayName = "$STR_nln_main_interactions_selfActionHide";
                     condition = "!nln_cas_nineliner_disable && !(isNull (uiNamespace getVariable ['nln_cas_nineliner', displayNull]))";
                     statement = "call nln_cas_nineliner_fnc_closeBackground;";
                 };

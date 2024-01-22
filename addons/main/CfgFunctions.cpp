@@ -17,5 +17,6 @@ class nln_main {
         class setPage {};
         class sharePage {};
         class sharePageReceived {};
+        class Close_All{};
     };
 };
